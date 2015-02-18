@@ -1,10 +1,10 @@
 {
   "name": "generator-argon-jspm",
   "version": "0.0.0",
-  "description": "Yeoman generator",
+  "description": "Yeoman generator for ArgonJS with JSPM",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "DNoved1/generator-argon-jspm",
+  "repository": "argonjs/generator-argon-jspm",
   "author": {
     "name": "Devon Cooper",
     "email": "dnoved1@aim.com",
@@ -23,8 +23,10 @@
     "yeoman-generator"
   ],
   "dependencies": {
-    "yeoman-generator": "^0.18.0",
     "chalk": "^0.5.0",
+    "jspm": "git://github.com/jspm/jspm-cli",
+    "which": "^1.0.8",
+    "yeoman-generator": "^0.18.0",
     "yosay": "^0.3.0"
   },
   "devDependencies": {
