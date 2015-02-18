@@ -1,0 +1,6 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-argon-jspm' ]; then cd .. && eval "mv $currentfolder generator-argon-jspm" && cd generator-argon-jspm; fi
