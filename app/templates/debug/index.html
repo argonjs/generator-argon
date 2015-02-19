@@ -1,0 +1,21 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Debug</title>
+    <script src="/jspm_packages/6to5-polyfill.js"></script>
+    <script src="/jspm_packages/es6-module-loader.src.js"></script>
+    <script src="/jspm_packages/system.src.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <script src='../config.js'></script>
+    <script>
+      System.config({
+        baseURL: '../'
+      })
+      System.import('debug/debug')
+    </script>
+  </body>
+</html>
