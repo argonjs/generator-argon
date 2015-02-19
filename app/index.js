@@ -2,8 +2,8 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
-var spawn = require('child_process').spawn
 var which = require('which')
+var Promise = require('bluebird')
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -19,37 +19,26 @@ module.exports = yeoman.generators.Base.extend({
         throw 'Gulp is required. Use `npm install -g gulp` to install it.'
     }
 
-    var jspmConfig = require('jspm/lib/global-config').config
-
     this.pkg = require('../package.json');
-    
-    if (jspmConfig && jspmConfig.endpoints && jspmConfig.endpoints.gatech) {
-        // Do nothing
-    } else {
-        spawn('jspm', ['endpoint', 'create', 'gatech', 'jspm-github'])
-    }
   },
 
   prompting: function () {
     var done = this.async();
 
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the world-class' + chalk.red('ArgonJspm') + ' generator!'
-    ));
+    this.log(yosay('Welcome to the ' + chalk.red('ArgonJspm') + ' generator!'));
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
-    }];
+    var jspmConfig = require('jspm/lib/global-config').config
+    if (!(jspmConfig && jspmConfig.endpoints && jspmConfig.endpoints.gatech)) {
+      var jspmEndpoint = require('jspm/lib/endpoint')
 
-    this.prompt(prompts, function (props) {
-      this.someOption = props.someOption;
-
-      done();
-    }.bind(this));
+      Promise.resolve(jspmEndpoint.create('gatech', 'jspm-github')).then(
+        function(success) {
+            done()
+        }, function(error) {
+            done()
+        }
+      )
+    }
   },
 
   writing: {

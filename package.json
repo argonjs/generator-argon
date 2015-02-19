@@ -23,6 +23,7 @@
     "yeoman-generator"
   ],
   "dependencies": {
+    "bluebird": "^2.9.12",
     "chalk": "^0.5.0",
     "jspm": "git://github.com/jspm/jspm-cli",
     "which": "^1.0.8",
