@@ -68,8 +68,12 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.installDependencies({
-      skipInstall: this.options['skip-install']
-    });
+    this.npmInstall()
+    this.spawnCommand('jspm', ['install'])
+  },
+
+  end: function () {
+    this.log('All done!')
+    this.log('Run `gulp dev` to test out the example argon app.')
   }
 });
