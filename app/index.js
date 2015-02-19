@@ -38,6 +38,8 @@ module.exports = yeoman.generators.Base.extend({
             done()
         }
       )
+    } else {
+        done()
     }
   },
 
