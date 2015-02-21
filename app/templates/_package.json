@@ -5,9 +5,9 @@
       "lib": "lib"
     },
     "dependencies": {
-      "argon": "gatech:ael/argon.js@v0.0.12",
-      "image": "^0.1.0",
-      "three.js": "github:mrdoob/three.js@r70",
+      "argon": "gatech:ael/argon.js@0.0.13",
+      "image": "github:systemjs/plugin-image@^0.1.0",
+      "three": "github:mrdoob/three.js@r70",
       "threestrap": "github:unconed/threestrap@^0.0.9"
     }
   },

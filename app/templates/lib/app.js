@@ -1,5 +1,5 @@
 import ARGON from 'argon/argon-three'
-import THREE from 'three.js'
+import THREE from 'three'
 import buzz from './buzz'
 
 var options = THREE.Bootstrap.createArgonOptions()

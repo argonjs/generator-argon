@@ -1,4 +1,4 @@
-import THREE from 'three.js'
+import THREE from 'three'
 
 var buzz = new THREE.Object3D
 
