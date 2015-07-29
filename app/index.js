@@ -25,13 +25,15 @@ module.exports = yeoman.generators.Base.extend({
   prompting: function () {
     var done = this.async();
 
-    this.log(yosay('Welcome to the ' + chalk.red('ArgonJspm') + ' generator!'));
+    this.log(yosay('Welcome to the ' + chalk.red('argon') + ' generator!'));
 
+    this.log("Checking your jspm global config for a gatech github registry...")
     var jspmConfig = require('jspm/lib/global-config').config
-    if (!(jspmConfig && jspmConfig.endpoints && jspmConfig.endpoints.gatech)) {
-      var jspmEndpoint = require('jspm/lib/endpoint')
+    if (!(jspmConfig && jspmConfig.registries && jspmConfig.registries.gatech)) {
+      var registry = require('jspm/lib/registry')
 
-      Promise.resolve(jspmEndpoint.create('gatech', 'jspm-github')).then(
+      this.log("jspm gatech github registry was not found! Setting up a new registry...")
+      Promise.resolve(registry.create('gatech', 'jspm-github')).then(
         function(success) {
             done()
         }, function(error) {
@@ -39,11 +41,14 @@ module.exports = yeoman.generators.Base.extend({
         }
       )
     } else {
+        this.log("jspm gatech registry found!")
         done()
     }
   },
 
   writing: function () {
+    this.log("Copying updated template files...")
+
     function copyDir(context, dir) {
       context.fs.copy(
         context.templatePath(dir) + '/*',
@@ -58,8 +63,9 @@ module.exports = yeoman.generators.Base.extend({
       )
     }
 
-    copyDir(this, 'lib')
+    copyDir(this, 'src')
     copyDir(this, 'debug')
+    copyDir(this, 'www')
 
     copyFile(this, 'package.json', true)
     copyFile(this, 'config.js', true)
@@ -68,12 +74,18 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
+    var done = this.async();
+    this.log("Running `npm install`...")
     this.npmInstall()
-    this.spawnCommand('jspm', ['install'])
+    this.log("Running `jspm install`...")
+    this.spawnCommand('jspm', ['install']).on('close', function () {
+        done();
+    });
   },
 
   end: function () {
-    this.log('All done!')
-    this.log('Run `gulp dev` to test out the example argon app.')
+    this.log(yosay('All done! Run '+ chalk.blue('`yo argon:exampleGeo`') +
+      ' to see a geo-based example app, or run ' + chalk.blue('`gulp dev`') +
+      ' to start the dev server.'))
   }
 });

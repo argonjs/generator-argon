@@ -2,13 +2,43 @@
   "jspm": {
     "main": "app/main",
     "directories": {
-      "lib": "lib"
+      "lib": "src"
     },
     "dependencies": {
-      "argon": "gatech:ael/argon.js@0.0.13",
+      "argon": "gatech:ael/argon.js@0.1.2",
       "image": "github:systemjs/plugin-image@^0.1.0",
-      "three": "github:mrdoob/three.js@r70",
-      "threestrap": "github:unconed/threestrap@^0.0.9"
+      "three": "github:jiyinyiyong/three.js@^0.71.0",
+      "threestrap": "github:unconed/threestrap@^0.0.10"
+    },
+    "overrides": {
+      "github:jiyinyiyong/three.js@0.71.0": {
+        "main": "three",
+        "format": "global",
+        "shim": {
+          "three": {
+            "exports": "THREE"
+          }
+        }
+      },
+      "github:unconed/threestrap@0.0.10": {
+        "main": "threestrap",
+        "format": "global",
+        "directories": {
+          "dist": "build"
+        },
+        "registry": "jspm",
+        "dependencies": {
+          "three": "github:jiyinyiyong/three.js@^0"
+        },
+        "shim": {
+          "threestrap": {
+            "deps": [
+              "three"
+            ],
+            "exports": "THREE"
+          }
+        }
+      }
     }
   },
   "devDependencies": {

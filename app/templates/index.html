@@ -4,14 +4,12 @@
   <head>
     <meta charset='utf-8'>
     <title>My Argon App</title>
-    <script src="jspm_packages/babel-polyfill.js"></script>
-    <script src="jspm_packages/es6-module-loader.src.js"></script>
-    <script src="jspm_packages/system.src.js"></script>
   </head>
   <body>
+    <script src="jspm_packages/system.js"></script>
     <script src='config.js'></script>
     <script>
-      System.import('lib/app')
+        System.import('src/app')
     </script>
   </body>
 </html>
