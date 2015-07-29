@@ -7,10 +7,10 @@ How to Use
 npm install -g gulp jspm yo
 ```
 
-3. Install the argon-jspm generator:  
+3. Install the argon generator:  
 ```sh
-git clone https://github.com/argonjs/generator-argon-jspm.git
-cd generator-argon-jspm
+git clone https://github.com/argonjs/generator-argon.git
+cd generator-argon
 npm link
 ```
 
@@ -18,7 +18,7 @@ npm link
 ```sh
 mkdir my_argon_project
 cd my_argon_project
-yo argon-jspm
+yo argon
 ```
 
 5. Test the example app:  
@@ -27,3 +27,5 @@ gulp dev
 ```
 
 In Argon, enter `<your-ip>:1337` as the url to see the example app.
+
+To use the remote debugger, enter  `<your-ip>:1337/debug/` in Argon, and load your channel on your desktop browser. 
