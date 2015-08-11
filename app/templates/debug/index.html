@@ -4,20 +4,16 @@
   <head>
     <meta charset='utf-8'>
     <title>Debug</title>
-    <script src="../jspm_packages/system.js"></script>
     <style> #argon-immersive-context { background-color: rgba(0,255,255,0.5); text-align: center; width:100%; height: 100% }</style>
   </head>
   <body>
     <div id="argon-immersive-context">
       <br/><br/><br/><b><h1>Remote Debugger</h1></b>
     </div>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="../jspm_packages/system.js"></script>
     <script src='../config.js'></script>
     <script>
-      System.config({
-        baseURL: '../'
-      })
-      System.import('debug/debug')
+      System.import('argon')
     </script>
   </body>
 </html>

@@ -5,7 +5,7 @@ import buzz from './buzz'
 var Cesium = Argon.Cesium;
 
 // retrieve the immersive context and initialize Three.js rendering
-var context = Argon.immersiveContext;
+var context = Argon.immersiveContext
 var options = THREE.Bootstrap.createArgonOptions( context )
 var three = THREE.Bootstrap( options )
 
@@ -24,13 +24,14 @@ gatechGeoObject.add(buzz)
 // in the threestrap update loop
 three.on('update', function(event) {
   // move buzz close to our location
-  var myLocationDegrees = event.argonState.position.cartographicDegrees;
+  var myLocationDegrees = event.argonState.position.cartographicDegrees
   if (myLocationDegrees) {
     var myLongitude = myLocationDegrees[0]
     var myLatitude = myLocationDegrees[1]
-    var justNorthOfMePosition = Cesium.Cartesian3.fromDegrees(myLongitude, myLatitude + 0.01);
+    var justNorthOfMePosition = Cesium.Cartesian3.fromDegrees(myLongitude, myLatitude + 0.01)
     gatechGeoEntity.position.setValue(justNorthOfMePosition)
   }
+
   // make buzz spin
   buzz.rotation.y += 2 * three.Time.delta
 })

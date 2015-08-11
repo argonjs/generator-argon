@@ -65,7 +65,7 @@ module.exports = yeoman.generators.Base.extend({
 
     copyDir(this, 'src')
     copyDir(this, 'debug')
-    copyDir(this, 'www')
+    copyFile(this, 'examples')
 
     copyFile(this, 'package.json', true)
     copyFile(this, 'config.js', true)
@@ -84,8 +84,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   end: function () {
-    this.log(yosay('All done! Run '+ chalk.blue('`yo argon:exampleGeo`') +
-      ' to see a geo-based example app, or run ' + chalk.blue('`gulp dev`') +
-      ' to start the dev server.'))
+    this.log(yosay('All done! Run '+ chalk.blue('`gulp dev`') +
+      ' to start the dev server. Load /examples/index.html to see some examples!'))
   }
 });
