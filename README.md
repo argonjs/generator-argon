@@ -9,16 +9,9 @@ This project sets up an Argon generator for Yeoman.  To get ready to use it, ins
 
 1. Install [node.js/npm](http://nodejs.org)
 
-2. Install gulp, jspm, and yo:  
+2. Install gulp, jspm, yo, and generator-argon:  
   ```sh
-  npm install -g gulp jspm yo
-  ```
-
-3. Install the argon generator (using the following git clone command, or "clone on desktop" from github.com):  
-  ```sh
-  git clone https://github.com/argonjs/generator-argon.git
-  cd generator-argon
-  npm link
+  npm install -g gulp jspm yo generator-argon
   ```
 
 Once these steps are complete, you can now use yeoman to bootstrap a new Argon project. 
