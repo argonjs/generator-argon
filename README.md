@@ -31,7 +31,7 @@ Simply create a new, empty directory whereever you'd like your new project to be
   yo argon
   ```
 
-The project is set up with an index.html file at the top level, that uses SystemJS to load the application's Javascript from src/app.js. 
+The project is set up with an index.html file at the top level, that uses SystemJS / jspm to load the application's Javascript from src/app.js. 
 
   ```sh
   gulp dev
@@ -39,6 +39,5 @@ The project is set up with an index.html file at the top level, that uses System
   
 In Argon, enter `<your-ip>:1337` as the url to see the example app.
   
-The project will also serve up any .html files it finds in a ```www/``` directory (if you create one).  If you just want to use this sample as a debugger for your existing Argon html project, create a ```www/``` directory and copy you web application into it.  
-  
-To use the remote debugger, enter  `<your-ip>:1337/debug/` in Argon, and load your channel on your desktop browser. 
+To use the remote debugger, enter  `<your-ip>:1337/debug/` in Argon, and load your channel on your desktop browser. The remote debugger should work with any .html files in your project. 
+
