@@ -1,6 +1,8 @@
 How to Use
 ===
 
+# NOTE: This generator does not currently work.  It is aimed at Argon3, we are upgrading everything to Argon4.  Please do not use.
+
 For those unfamiliar with jspm and yo, together they let us create a simple package bootstrapping scheme that includes debugging and other useful features. 
 First, jspm is a javascript package manager for the SystemJS universal module loader (jspm.io).  We use this to download the necessary Javascript libraries, including the latest version of argon.js and others.
 Second, yoeoman (yeoman.io) helps you kickstart new projects using installed templates. 
